@@ -1,7 +1,132 @@
 ---
-title: "Wasm"
+title: "Wasm for Research"
+author: Raniere Silva
+format: revealjs
 ---
 
-## Quarto
+# Brief history of World Wide Web
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+## 1989 to 1993
+
+Tim Berners-Lee creates the first version of the Web.
+
+It supported only [static pages](https://en.wikipedia.org/wiki/Static_web_page).
+
+## 1994 to 2006
+
+Introduction of [dynamic page](https://en.wikipedia.org/wiki/Dynamic_web_page).
+
+Exploration of different technologies like
+
+- [CSS](https://en.wikipedia.org/wiki/CSS)
+- [JavaScript] and [Asynchronous JavaScript and XML](https://en.wikipedia.org/wiki/Ajax_(programming)) (AJAX)
+- [Java applets] possible with [Netscape Plugin Application Programming Interface](https://en.wikipedia.org/wiki/NPAPI)
+- [Flash]
+
+## 2007 to 2016
+
+With the launch of the iPhone, the Web moved from the personal computer to mobile devices.
+
+Consolidation of specifications and technologies promoted under the name of [HTML5](https://en.wikipedia.org/wiki/HTML5).
+
+[Java applets] and [Flash] were replaced with [JavaScript].
+
+## 2017 to today
+
+Consolidation of [software as a service](https://en.wikipedia.org/wiki/Software_as_a_service) as the main business model for services in the Web.
+
+[JavaScript] is too slow for some applications, specially for larger applications because of the large code base that requires to be parsed by the users' web browser.
+
+Raise in popularity of [WebAssembly] (Wasm).
+
+# WebAssembly
+
+## Case studies
+
+- [Image processing in Figma](https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/)
+- [3D modeling in Autodesk](https://www.autodesk.com/autodesk-university/class/Supercharge-Your-Browser-Based-Autodesk-Platform-Services-Applications-with-WebAssembly-2025)
+- [Convert markup languages in Pandoc](https://pandoc.org/app/)
+- Coding in [JupyterLite]
+
+## Benefits
+
+- Skip instalation steps
+- Data "never" leaves your device
+- Always in a sandbox
+
+## Limitations
+
+- Small ecosystem
+- Small (4GB) memory limit due 32-bit or runtime
+- Data persistence 
+
+## Minimal Example
+
+:::: {.columns}
+
+::: {.column width="50%"}
+The `hello.c` file is
+
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello World\n");
+    return 0;
+}
+```
+
+It can be compiled using
+
+```bash
+emcc hello.c -o hello.html
+```
+:::
+
+::: {.column width="50%"}
+Three files are produced
+
+- `hello.html`
+
+  The HTML used to load all parts.
+- `hello.js`
+
+  A "glue" code to load and run the C code.
+- `hello.wasm`
+:::
+
+::::
+
+## In research
+
+:::: {.columns}
+
+::: {.column width="50%"}
+The R ecosystem has the [R for WebAssembly](https://github.com/r-wasm) organisation that
+
+- compiles R to Wasm, called `webR`
+- compiles some R packages to Wasm and publishes to a [CRAN-like repository](https://repo.r-wasm.org/)
+:::
+
+::: {.column width="50%"}
+The team behind Python offers Wasm support, see [PEP 776](https://peps.python.org/pep-0776/), [PEP 783](https://peps.python.org/pep-0783/), and [PEP 816](https://peps.python.org/pep-0816/).
+
+Support for web browsers is provided by
+
+- [Pyodide](https://pyodide.org/) that started at Mozilla
+- [PyScript](https://pyscript.net/) that is backed by Anaconda, Inc.
+:::
+
+::::
+
+## Jupyter
+
+[JupyterLite] is a version of [JupyterLab](https://jupyterlab.readthedocs.io/) that runs entirely in the browser.
+
+Jupyter kernels are based on [xeus](https://github.com/jupyter-xeus/xeus), a implementation of the Jupyter kernel protocol in C++. Both Python and R are supported.
+
+[Flash]: https://en.wikipedia.org/wiki/Adobe_Flash
+[Java applets]: https://en.wikipedia.org/wiki/Java_applet
+[JavaScript]: https://en.wikipedia.org/wiki/JavaScript
+[JupyterLite]: https://jupyterlite.readthedocs.io/
+[WebAssembly]: https://en.wikipedia.org/wiki/WebAssembly
