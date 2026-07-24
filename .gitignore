@@ -2,5 +2,8 @@
 .pixi/*
 !.pixi/config.toml
 
+# Quarto
 /.quarto/
 **/*.quarto_ipynb
+index.html
+index_files
