@@ -7,4 +7,8 @@ version = "0.1.0"
 
 [tasks]
 
+[tasks.build]
+cmd = "emcc hello.c -o hello.html"
+
 [dependencies]
+emscripten = ">=4.0.9,<5"
