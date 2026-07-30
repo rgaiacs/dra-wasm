@@ -50,15 +50,16 @@ Raise in popularity of [WebAssembly] (Wasm).
 
 ## Benefits
 
-- Skip instalation steps
+- Skip installation steps
 - Data "never" leaves your device
 - Always in a sandbox
 
 ## Limitations
 
 - Small ecosystem
-- Small (4GB) memory limit due 32-bit or runtime
-- Data persistence 
+- Small (4GB) memory limit due 32-bit
+- Limited network operations due enforce of same-origin
+- Data persistence in the web browser powered by [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
 
 ## Minimal Example
 
