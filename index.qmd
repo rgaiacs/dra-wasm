@@ -39,14 +39,22 @@ Consolidation of [software as a service](https://en.wikipedia.org/wiki/Software_
 
 Raise in popularity of [WebAssembly] (Wasm).
 
-# WebAssembly {background-image="./img/scrabble.jpg" background-position="center" background-opacity="0.4"}
+# Wasm {background-image="./img/scrabble.jpg" background-position="center" background-opacity="0.4"}
+
+## Concept
+
+The web browser loads a binary read to be executed instead of a "human readable" script.
+
+For safety, the loaded binary is treated as unsafe and executed in a sandbox.
 
 ## Case studies
 
 - [Image processing in Figma](https://www.figma.com/blog/webassembly-cut-figmas-load-time-by-3x/)
 - [3D modeling in Autodesk](https://www.autodesk.com/autodesk-university/class/Supercharge-Your-Browser-Based-Autodesk-Platform-Services-Applications-with-WebAssembly-2025)
 - [Convert markup languages in Pandoc](https://pandoc.org/app/)
-- Coding in [JupyterLite]
+- Coding in [JupyterLite] or [notebook.link](https://notebook.link/)
+- [DuckDB](https://duckdb.org/docs/lts/clients/wasm/overview)
+- [RunMat](https://runmat.com/)
 
 ## Benefits
 
@@ -57,11 +65,77 @@ Raise in popularity of [WebAssembly] (Wasm).
 ## Limitations
 
 - Small ecosystem
+- Single thread
 - Small (4GB or less) memory limit due 32-bit
 - Limited network operations due enforce of same-origin
 - Data persistence in the web browser powered by [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
+- [Support to GPU is experimental](https://developer.chrome.com/blog/io24-webassembly-webgpu-1)
+- No access to [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) (DOM)
 
-## Minimal Example
+## In research
+
+:::: {.columns}
+
+::: {.column width="50%"}
+The R ecosystem has the [R for WebAssembly](https://github.com/r-wasm) organisation that
+
+- compiles R to Wasm, called `webR`
+- compiles some R packages to Wasm and publishes to a [CRAN-like repository](https://repo.r-wasm.org/)
+:::
+
+::: {.column width="50%"}
+The team behind Python offers Wasm support, see [PEP 776](https://peps.python.org/pep-0776/), [PEP 783](https://peps.python.org/pep-0783/), and [PEP 816](https://peps.python.org/pep-0816/).
+
+Support for web browsers is provided by
+
+- [Pyodide](https://pyodide.org/) that started at Mozilla
+- [PyScript](https://pyscript.net/) that is backed by Anaconda, Inc.
+:::
+
+::::
+
+## Other languages
+
+- C and C++ via Emscripten or Clang standalone
+- Fortran via C
+- Rust via rustc
+- Go via native support
+- Kotlin via native compiling 
+
+## Package manager
+
+[Conda](https://en.wikipedia.org/wiki/Conda_(package_manager)) is an open-source, **cross-platform**, **language-agnostic** package manager and environment management system.
+
+[`emscripten-forge`](https://emscripten-forge.org/) is a GitHub organization curating Conda recipes for the `emscripten-wasm32` platform. Packages are uploaded to the `emscripten-forge` channel on [prefix.dev](https://prefix.dev/channels/emscripten-forge-4x) and can be installed in a Wasm environment using [`mambajs`](https://github.com/emscripten-forge/mambajs).
+
+## Jupyter
+
+[JupyterLite] is a version of [JupyterLab](https://jupyterlab.readthedocs.io/) that runs entirely in the browser.
+
+Jupyter kernels are based on [xeus](https://github.com/jupyter-xeus/xeus), a implementation of the Jupyter kernel protocol in C++. Both Python and R are supported.
+
+# Can I use? {background-image="./img/pottery.jpg" background-position="center" background-opacity="0.4"}
+
+## Decision tree
+
+```{mermaid}
+flowchart LR
+  software[Software] --> gui{GUI?}
+  gui -- no --> language{C code?}
+
+  language -- no --> wasm(Try Wasm)
+
+  language -- yes --> conda{In Conda?}
+
+  conda -- yes --> wasm
+  conda -- no --> no
+  
+  gui -- yes --> no(Avoid Wasm)
+```
+
+# Examples {background-image="./img/sketching.jpg" background-position="center" background-opacity="0.6"}
+
+## Minimal example in C
 
 :::: {.columns}
 
@@ -97,34 +171,6 @@ Three files are produced
 :::
 
 ::::
-
-## In research
-
-:::: {.columns}
-
-::: {.column width="50%"}
-The R ecosystem has the [R for WebAssembly](https://github.com/r-wasm) organisation that
-
-- compiles R to Wasm, called `webR`
-- compiles some R packages to Wasm and publishes to a [CRAN-like repository](https://repo.r-wasm.org/)
-:::
-
-::: {.column width="50%"}
-The team behind Python offers Wasm support, see [PEP 776](https://peps.python.org/pep-0776/), [PEP 783](https://peps.python.org/pep-0783/), and [PEP 816](https://peps.python.org/pep-0816/).
-
-Support for web browsers is provided by
-
-- [Pyodide](https://pyodide.org/) that started at Mozilla
-- [PyScript](https://pyscript.net/) that is backed by Anaconda, Inc.
-:::
-
-::::
-
-## Jupyter
-
-[JupyterLite] is a version of [JupyterLab](https://jupyterlab.readthedocs.io/) that runs entirely in the browser.
-
-Jupyter kernels are based on [xeus](https://github.com/jupyter-xeus/xeus), a implementation of the Jupyter kernel protocol in C++. Both Python and R are supported.
 
 [Flash]: https://en.wikipedia.org/wiki/Adobe_Flash
 [Java applets]: https://en.wikipedia.org/wiki/Java_applet
