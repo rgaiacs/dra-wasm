@@ -1,0 +1,22 @@
+flowchart LR
+  subgraph web[Web]
+    html[*.html]
+    js[*.js]
+    wasm[*.wasm]
+    api[API]
+  end
+
+  subgraph browser[Web browser]
+    dom[DOM]
+    jse[JavaScript Engine]
+    wasme[Wasm Engine]
+  end
+
+  html --> dom
+  js --> jse
+  wasm --> wasme
+
+  dom <--> jse
+  jse <--> wasme
+
+  jse <--> api

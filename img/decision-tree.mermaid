@@ -1,0 +1,12 @@
+flowchart LR
+  software[Software] --> gui{GUI?}
+  gui -- no --> language{C code?}
+
+  language -- no --> wasm(Try Wasm)
+
+  language -- yes --> conda{In Conda?}
+
+  conda -- yes --> wasm
+  conda -- no --> no
+  
+  gui -- yes --> no(Avoid Wasm)
