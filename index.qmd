@@ -2,6 +2,10 @@
 title: "Wasm for Research"
 author: Raniere Silva
 format: revealjs
+title-slide-attributes:
+  data-background-image: ./img/rocket.jpg
+  background-position: left
+  data-background-opacity: "0.4"
 ---
 
 # Brief history of World Wide Web {background-image="./img/old-pc.jpg" background-position="center" background-opacity="0.4"}
@@ -72,6 +76,8 @@ For safety, the loaded binary is treated as unsafe and executed in a sandbox.
 - Data persistence in the web browser powered by [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
 - [Support to GPU is experimental](https://developer.chrome.com/blog/io24-webassembly-webgpu-1)
 - No access to [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) (DOM)
+
+## Mental model
 
 ## In research
 
