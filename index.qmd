@@ -55,6 +55,7 @@ For safety, the loaded binary is treated as unsafe and executed in a sandbox.
 - Coding in [JupyterLite] or [notebook.link](https://notebook.link/)
 - [DuckDB](https://duckdb.org/docs/lts/clients/wasm/overview)
 - [RunMat](https://runmat.com/)
+- [Teaching Snakemake](https://github.com/snakemake/snakemake-wasm-app)
 
 ## Benefits
 
