@@ -157,40 +157,49 @@ function increase_number() {
 
 ## Minimal example in C
 
-:::: {.columns}
-
-::: {.column width="50%"}
-The `hello.c` file is
+The `increase.c` file is
 
 ```c
-#include <stdio.h>
-
-int main() {
-    printf("Hello World\n");
-    return 0;
+int increase_number(int n) {
+  return n + 1;
 }
 ```
 
-It can be compiled using
+The JavaScript part is
 
-```bash
-emcc hello.c -o hello.html
+```js
+c_increase_number = Module.cwrap('increase_number', 'number', ['number'])
+
+function increase_number() {
+    number_span = document.getElementById("number");
+    number = Number(number_span.innerText);
+    number_span.innerText = c_increase_number(number);
+}
 ```
-:::
 
-::: {.column width="50%"}
-Three files are produced
+## Minimal example of JavaScript in C
 
-- `hello.html`
+The `increase.c` file is
 
-  The HTML used to load all parts.
-- `hello.js`
+```c
+#include <emscripten.h>
 
-  A "glue" code to load and run the C code.
-- `hello.wasm`
-:::
+void increase_number() {
+  int n = EM_ASM_INT({
+    const number_span = document.getElementById("number");
+    const number = Number(number_span.innerText);
+    return number;
+  });
 
-::::
+  n = n + 1;
+
+  EM_ASM({
+    const number_span = document.getElementById("number");
+    number_span.innerText = $0;
+  }, n);
+}
+```
+
 
 [Flash]: https://en.wikipedia.org/wiki/Adobe_Flash
 [Java applets]: https://en.wikipedia.org/wiki/Java_applet
