@@ -5,10 +5,12 @@ format: revealjs
 title-slide-attributes:
   data-background-image: ./img/rocket.jpg
   background-position: left
-  data-background-opacity: "0.4"
+  data-background-opacity: "0.6"
 ---
 
-# Brief history of World Wide Web {background-image="./img/old-pc.jpg" background-position="center" background-opacity="0.4"}
+# Or "Skipping the installation" {background-image="./img/installation.jpg" background-position="center" background-opacity="0.6"}
+
+# Brief history of World Wide Web {background-image="./img/old-pc.jpg" background-position="center" background-opacity="0.6"}
 
 ## 1989 to 1993
 
@@ -43,7 +45,7 @@ Consolidation of [software as a service](https://en.wikipedia.org/wiki/Software_
 
 Raise in popularity of [WebAssembly] (Wasm).
 
-# Wasm {background-image="./img/scrabble.jpg" background-position="center" background-opacity="0.4"}
+# Wasm {background-image="./img/scrabble.jpg" background-position="center" background-opacity="0.6"}
 
 ## Concept
 
@@ -125,7 +127,7 @@ Support for web browsers is provided by
 
 Jupyter kernels are based on [xeus](https://github.com/jupyter-xeus/xeus), a implementation of the Jupyter kernel protocol in C++. Both Python and R are supported.
 
-# Can I use? {background-image="./img/pottery.jpg" background-position="center" background-opacity="0.4"}
+# Can I use? {background-image="./img/pottery.jpg" background-position="center" background-opacity="0.6"}
 
 ## Decision tree
 
