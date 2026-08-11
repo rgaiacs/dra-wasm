@@ -1,0 +1,1 @@
+Screenshot of https://caniuse.com/?search=webgpu on 11 August 2026.

@@ -77,7 +77,11 @@ For safety, the loaded binary is treated as unsafe and executed in a sandbox.
 - [Support to GPU is experimental](https://developer.chrome.com/blog/io24-webassembly-webgpu-1)
 - No access to [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) (DOM)
 
+##  {background-image="./img/webgpu.png" background-position="bottom"}
+
 ## Mental model
+
+![](./img/mental-model.png)
 
 ## In research
 
@@ -125,20 +129,7 @@ Jupyter kernels are based on [xeus](https://github.com/jupyter-xeus/xeus), a imp
 
 ## Decision tree
 
-```{mermaid}
-flowchart LR
-  software[Software] --> gui{GUI?}
-  gui -- no --> language{C code?}
-
-  language -- no --> wasm(Try Wasm)
-
-  language -- yes --> conda{In Conda?}
-
-  conda -- yes --> wasm
-  conda -- no --> no
-  
-  gui -- yes --> no(Avoid Wasm)
-```
+![](./img/decision-tree.png)
 
 # Examples {background-image="./img/sketching.jpg" background-position="center" background-opacity="0.6"}
 
