@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function increase_number() {
+                number_span = document.getElementById("number");
+                number = Number(number_span.innerText);
+                number_span.innerText = number + 1;
+            }
+        </script>
+    </head>
+    <body>
+        <h1>Example</h1>
+        <p>Number is <span id="number">0</span></p>
+        <p><button onclick="increase_number()">Increase number</button></p>
+    </body>
+</html>

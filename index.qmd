@@ -135,6 +135,26 @@ Jupyter kernels are based on [xeus](https://github.com/jupyter-xeus/xeus), a imp
 
 # Examples {background-image="./img/sketching.jpg" background-position="center" background-opacity="0.6"}
 
+## Minimal example in JavaScript
+
+The HTML part is
+
+```html
+<h1>Example</h1>
+<p>Number is <span id="number">0</span></p>
+<p><button onclick="increase_number()">Increase number</button></p>
+```
+
+The JavaScript part is
+
+```js
+function increase_number() {
+    number_span = document.getElementById("number");
+    number = Number(number_span.innerText);
+    number_span.innerText = number + 1;
+}
+```
+
 ## Minimal example in C
 
 :::: {.columns}
