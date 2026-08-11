@@ -68,6 +68,7 @@ For safety, the loaded binary is treated as unsafe and executed in a sandbox.
 - Skip installation steps
 - Data "never" leaves your device
 - Always in a sandbox
+- Cheaper to provide to users
 
 ## Limitations
 
@@ -79,7 +80,9 @@ For safety, the loaded binary is treated as unsafe and executed in a sandbox.
 - [Support to GPU is experimental](https://developer.chrome.com/blog/io24-webassembly-webgpu-1)
 - No access to [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) (DOM)
 
-##  {background-image="./img/webgpu.png" background-position="bottom"}
+## {background-image="./img/numba.png" background-position="top"}
+
+## {background-image="./img/webgpu.png" background-position="bottom"}
 
 ## Mental model
 
