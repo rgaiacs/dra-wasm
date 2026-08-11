@@ -8,7 +8,7 @@ version = "0.1.0"
 [tasks]
 
 [tasks.build]
-cmd = "emcc hello.c -o hello.html"
+cmd = "emcc increase.c -o increase.js --no-entry -sEXPORTED_FUNCTIONS=_increase_number -sEXPORTED_RUNTIME_METHODS=ccall,cwrap"
 
 [dependencies]
 emscripten = ">=4.0.9,<5"
