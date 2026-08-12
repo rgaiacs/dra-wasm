@@ -4,7 +4,7 @@ author: Raniere Silva
 format: revealjs
 title-slide-attributes:
   data-background-image: ./img/rocket.jpg
-  background-position: left
+  data-background-position: left
   data-background-opacity: "0.6"
 ---
 
