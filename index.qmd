@@ -59,6 +59,7 @@ For safety, the loaded binary is treated as unsafe and executed in a sandbox.
 - [3D modeling in Autodesk](https://www.autodesk.com/autodesk-university/class/Supercharge-Your-Browser-Based-Autodesk-Platform-Services-Applications-with-WebAssembly-2025)
 - [Convert markup languages in Pandoc](https://pandoc.org/app/)
 - Coding in [JupyterLite] or [notebook.link](https://notebook.link/)
+- Reactive programming in [marimo](https://marimo.io/)
 - [DuckDB](https://duckdb.org/docs/lts/clients/wasm/overview)
 - [RunMat](https://runmat.com/)
 - [Teaching Snakemake](https://github.com/snakemake/snakemake-wasm-app)
@@ -78,7 +79,6 @@ For safety, the loaded binary is treated as unsafe and executed in a sandbox.
 - Limited network operations due enforce of same-origin
 - Data persistence in the web browser powered by [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
 - [Support to GPU is experimental](https://developer.chrome.com/blog/io24-webassembly-webgpu-1)
-- No access to [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) (DOM)
 
 ## {background-image="./img/numba.png" background-position="top"}
 
@@ -104,8 +104,8 @@ The team behind Python offers Wasm support, see [PEP 776](https://peps.python.or
 
 Support for web browsers is provided by
 
-- [Pyodide](https://pyodide.org/) that started at Mozilla
-- [PyScript](https://pyscript.net/) that is backed by Anaconda, Inc.
+- [Pyodide](https://pyodide.org/) started at Mozilla and is now sponsored by Cloudflare, Inc.
+- [PyScript](https://pyscript.net/) is backed by Anaconda, Inc.
 :::
 
 ::::
@@ -135,6 +135,8 @@ Jupyter kernels are based on [xeus](https://github.com/jupyter-xeus/xeus), a imp
 ## Decision tree
 
 ![](./img/decision-tree.png)
+
+Contributions to [`emscripten-forge`](https://emscripten-forge.org/) (also know as Conda) are welcome!
 
 # Examples {background-image="./img/sketching.jpg" background-position="center" background-opacity="0.6"}
 
@@ -203,6 +205,29 @@ void increase_number() {
 }
 ```
 
+## Thanks!
+
+:::: {.columns}
+
+::: {.column width="50%"}
+### Contact
+
+✉️ [raniere@rgaiacs.com](mailto:raniere@rgaiacs.com)
+
+🐘 [@rgaiacs@social.cologne](https://social.cologne/@rgaiacs)
+
+💻 @rgaiacs
+:::
+
+::: {.column width="50%"}
+### Resources
+
+- [Python Everywhere](https://youtu.be/HklunTc9giA?si=5QgvpyhIvovEh_Df) at EuroPython 2026
+- [Marimo WebAssembly Notebooks](https://youtu.be/cKfh5u8j2dE?si=1ZYmeJOWZ_Lpv7zA)
+- [State of In-Browser ML](https://youtu.be/1_r3GqS7GK8?si=E9TtyumUx9rkGcio) at PyCon DE 2026
+:::
+
+::::
 
 [Flash]: https://en.wikipedia.org/wiki/Adobe_Flash
 [Java applets]: https://en.wikipedia.org/wiki/Java_applet
